@@ -62,7 +62,7 @@ namespace Transneftenergo.DAL.Repositories
                  new CurrentTransformer { Id = 1, ElectricityMeasurementPointId = 1, KTT = 323, Number = 32, Type = "Type_A", VerificationDate = DateTime.Now.AddDays(-1) }
                 );
             modelBuilder.Entity<ElectricEnergyMeter>().HasData(
-                new ElectricEnergyMeter { Id = 1, ElectricityMeasurementPointId = 1, Number = 32, Type = "Type_A", VerificationDate = DateTime.Now.AddDays(-1) }
+                new ElectricEnergyMeter { Id = 1, ElectricityMeasurementPointId = 1, Number = 32, Type = "Type_A", VerificationDate = DateTime.Now.AddDays(+10) }
                 );
             modelBuilder.Entity<ElectricityMeasurementPoint>().HasData(
                     new ElectricityMeasurementPoint { Id = 1, ConsumptionObjectId = 1, CurrentTransformerId = 1, ElectricEnergyMeterId = 1, VoltageTransformerId = 1, Name = "ElectricityMeasurementPoint_A", From = new DateTime(2018, 2, 3), To = new DateTime(2018, 3, 3) }
@@ -71,7 +71,7 @@ namespace Transneftenergo.DAL.Repositories
                  new ElectricitySupplyPoint { Id = 1, ConsumptionObjectId = 1, CalculationAccountingDeviceId = 1, MaxKw = 4324, Name = "ElectricitySupplyPoint_A" }
                 );
             modelBuilder.Entity<VoltageTransformer>().HasData(
-                     new VoltageTransformer { Id = 1, ElectricityMeasurementPointId = 1, KTN = 3423, Number = 32, Type = "Type_A", VerificationDate = DateTime.Now.AddDays(-1) }
+                     new VoltageTransformer { Id = 1, ElectricityMeasurementPointId = 1, KTN = 3423, Number = 32, Type = "Type_A", VerificationDate = DateTime.Now.AddDays(+10) }
                 );
             modelBuilder.Entity<CalculationAccountingDeviceElectricityMeasurementPoint>().HasData(
                    new CalculationAccountingDeviceElectricityMeasurementPoint { Id = 1, FromCAD = new DateTime(2018, 2, 3), ToCAD = new DateTime(2018, 3, 3), FromEMP = new DateTime(2018, 2, 3), ToEMP = new DateTime(2018, 3, 3) }

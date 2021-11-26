@@ -5,6 +5,6 @@ namespace Transneftenergo.BAL.Interfaces
 {
     public interface IElectricityMeasurementPointService
     {
-        Task CreateForExistEquipment(ExistEquipmentIdsModel model);
+        Task<bool> CreateForExistEquipment(ExistEquipmentIdsModel model);
     }
 }

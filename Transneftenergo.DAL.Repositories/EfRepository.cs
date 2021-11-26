@@ -1,5 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 using Transneftenergo.DAL.Interfaces;
@@ -24,6 +26,11 @@ namespace Transneftenergo.DAL.Repositories
         public async Task<TEntity> GetFirstOrDefaultAsync(Expression<Func<TEntity, bool>> predicate)
         {
             return await _dbSet.FirstOrDefaultAsync(predicate);
+        }
+
+        public async Task<List<TEntity>> GetListWhereAsync(Expression<Func<TEntity, bool>> predicate)
+        {
+            return await _dbSet.Where(predicate).ToListAsync();
         }
 
         public async Task<bool> IsExist(Expression<Func<TEntity, bool>> predicate)

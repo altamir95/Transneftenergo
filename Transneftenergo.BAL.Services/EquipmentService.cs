@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Transneftenergo.BAL.Interfaces;
 using Transneftenergo.DAL.Interfaces;
@@ -15,7 +16,7 @@ namespace Transneftenergo.BAL.Services
             _equipment = equipment;
         }
 
-        public async Task<T> GetOverdueEquipment(int consumptionObjectId) =>
-            await _equipment.GetFirstOrDefaultAsync(e => e.VerificationDate > DateTime.Now && e.ElectricityMeasurementPoint.ConsumptionObjectId == consumptionObjectId);
+        public async Task<List<T>> GetOverdueEquipment(int consumptionObjectId) =>
+            await _equipment.GetListWhereAsync(e => e.VerificationDate > DateTime.Now && e.ElectricityMeasurementPoint.ConsumptionObjectId == consumptionObjectId);
     }
 }

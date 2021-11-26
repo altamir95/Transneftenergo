@@ -19,7 +19,9 @@ namespace Transneftenergo.WebServices.MainAPI.Controllers
         [HttpPost]
         public async Task<IActionResult> AddBySpecifyingEquipmentIds(ExistEquipmentIdsModel model)
         {
-            await _electricityMeasurementPointService.CreateForExistEquipment(model);
+            if (model is null) return BadRequest();
+            var result = await _electricityMeasurementPointService.CreateForExistEquipment(model);
+            if (!result) return BadRequest();
             return Ok();
         }
     }

@@ -28,14 +28,14 @@ namespace Transneftenergo.BAL.Services
             _voltageTransformer = voltageTransformer;
         }
 
-        public async Task CreateForExistEquipment(ExistEquipmentIdsModel model)
+        public async Task<bool> CreateForExistEquipment(ExistEquipmentIdsModel model)
         {
 
             if (
                 !await _electricEnergyMeter.IsExist(eem => eem.Id == model.ElectricEnergyMeterId) &&
                 !await _currentTransformer.IsExist(eem => eem.Id == model.CurrentTransformerId) &&
                 !await _voltageTransformer.IsExist(eem => eem.Id == model.VoltageTransformerId)
-                ) throw new Exception();
+                ) return false;
 
             var newElectricityMeasurementPoint = new ElectricityMeasurementPoint()
             {
@@ -47,6 +47,8 @@ namespace Transneftenergo.BAL.Services
             await _electricityMeasurementPoint.CreateAsync(newElectricityMeasurementPoint);
 
             await _electricityMeasurementPoint.SaveAsync();
+
+            return true;
         }
     }
 }

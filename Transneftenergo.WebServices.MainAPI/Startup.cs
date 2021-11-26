@@ -41,6 +41,7 @@ namespace Transneftenergo.WebServices.MainAPI
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Transneftenergo.WebServices.MainAPI v1"));
             }
 
+            app.UseStaticFiles();
             app.UseHttpsRedirection();
 
             app.UseRouting();
