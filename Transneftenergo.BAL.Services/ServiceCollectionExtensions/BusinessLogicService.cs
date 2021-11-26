@@ -4,7 +4,7 @@ using Transneftenergo.BAL.Services;
 using Transneftenergo.DAL.Models;
 using Transneftenergo.DAL.Repositories;
 
-namespace BAL
+namespace Transneftenergo.BAL.Services.ServiceCollectionExtensions
 {
     public static class ServiceCollectionExtensions
     {
